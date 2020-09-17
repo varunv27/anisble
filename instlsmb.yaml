@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install samba - File Share - CentOS
+      yum: name=samba state=latest
+      ignore_errors: yes
+
+    - name: Install Samba - File share - Ubuntu
+      apt: name=samba state=latest
+      ignore_errors: yes
+
+    - name: Start SBD service
+      service: name=smb state=started

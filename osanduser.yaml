@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: yes
+  tasks: 
+    - name: Print OS version to a file
+      shell: uname -a > /home/shaunneil4/osdetails.txt
+
+    - name: user who ran this task
+      shell: whoami >> /home/shaunneil4/osdetails.txt

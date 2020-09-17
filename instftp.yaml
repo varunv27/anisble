@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install ftp  -  CentOS
+      yum: name=vsftpd state=latest
+      ignore_errors: yes
+      notify: start service
+
+    - name: Install ftp - File share - Ubuntu
+      apt: name=vsftpd state=latest
+      ignore_errors: yes
+      notify: start service
+
+  handlers: 
+    - name: start service
+      service: name=vsftpd state=started
