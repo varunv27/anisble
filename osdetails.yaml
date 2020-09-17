@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: both
   tasks: 
     - name: Print OS version to a file
-      shell: uname -a > /home/shaunneil4/osdetails.txt
+      shell: uname -a > /home/ec2-user/osdetails.txt
