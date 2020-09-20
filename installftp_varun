@@ -1,0 +1,14 @@
+---
+
+- hosts: host1
+  become: yes
+  tasks:
+    - name: Install FTP
+      yum: name=vsftpd state=latest
+
+    - name: Start FTP Service
+      service: name=vsftpd state=started enabled=yes
+    
+    - name: Stop SFTP Service
+      service: name=vsftpd state=stopped enabled=yes
+
